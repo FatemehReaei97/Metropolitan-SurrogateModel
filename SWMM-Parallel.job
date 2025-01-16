@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH --mail-type=START,FAIL,END
+#SBATCH --mail-user=your-email@example.com
+#SBATCH -a 0-2455                            # Array for 2456 events (0-2455)
+#SBATCH -J SWMM_Sim                          # Job name: SWMM Simulation
+#SBATCH -o logs/swmm_output_%a.out           # Output file pattern
+#SBATCH -e logs/swmm_error_%a.error          # Error file pattern
+#SBATCH -p HPC                               # Partition name
+#SBATCH -q HPC                               # Queue name
+#SBATCH --mem-per-cpu=10G                    # Memory per CPU 
+#SBATCH -t 02:00:00                          # Time limit: for instance : 2 hours per simulation
+
+# Run the SWMM simulation script with event ID as argument
+srun python src/simulation/swmm_parallel_runner.py ${SLURM_ARRAY_TASK_ID}
