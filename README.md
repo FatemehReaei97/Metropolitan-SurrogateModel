@@ -24,18 +24,3 @@ The framework provides a novel approach to metropolitan-scale flood prediction b
   - Flood volume
 - **HPC Integration**: Supports parallel processing on High-Performance Computing systems
 
-## Repository Structure
-Metropolitan-SurrogateModel/
-├── src/
-│   ├── preprocessing/
-│   │   └── synthetic_rainfall_generator.py
-│   ├── clustering/
-│   │   └── network_analyzer.py
-│   ├── modeling/
-│   │   └── rf_cluster_trainer.py
-│   └── simulation/
-│       └── swmm_parallel_runner.py
-├── scripts/
-│   └── hpc/
-│       ├── train_clusters.job
-│       └── run_swmm_simulations.job
